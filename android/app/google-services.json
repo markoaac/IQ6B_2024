@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "577688174522",
+    "project_id": "iq6b-2024-maac",
+    "storage_bucket": "iq6b-2024-maac.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:577688174522:android:0be1ad9a30baf9800fa783",
+        "android_client_info": {
+          "package_name": "com.example.unidad_1"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAay44_ztyIjVKQm7HQTN4XPyA9QGDeKSY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:577688174522:android:b4f6d3fb0ccc07310fa783",
+        "android_client_info": {
+          "package_name": "com.maac.iq6b.a2024"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAay44_ztyIjVKQm7HQTN4XPyA9QGDeKSY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

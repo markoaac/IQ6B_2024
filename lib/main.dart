@@ -1,13 +1,19 @@
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
-import 'package:unidad_1/ApiDog/dog_page.dart';
-import 'package:unidad_1/Contactos/contactos_page.dart';
-import 'package:unidad_1/Contador/contador_page.dart';
-import 'package:unidad_1/Examen/productos_page.dart';
-import 'package:unidad_1/Future/ejemplo_page.dart';
-import 'package:unidad_1/Widgets/Practica_Layout.dart';
-import 'Pages/home_page.dart';
+import 'package:flutter_smart_dialog/flutter_smart_dialog.dart';
+import 'package:provider/provider.dart';
+import 'package:unidad_1/firebase/provider/globales.dart';
+import 'package:unidad_1/firebase/screens/actualizar_page.dart';
+import 'package:unidad_1/firebase/screens/agregar_page.dart';
+import 'package:unidad_1/firebase/screens/login_page.dart';
+import 'package:unidad_1/firebase/screens/productos_screen.dart';
+import 'package:unidad_1/firebase_options.dart';
 
-void main() {
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp(
+    options: DefaultFirebaseOptions.currentPlatform,
+  );
   runApp(const MyApp());
 }
 
@@ -16,14 +22,26 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.green),
-        useMaterial3: true,
+    return MultiProvider(
+      providers: [ChangeNotifierProvider(create: (_) => Globales())],
+      child: MaterialApp(
+        debugShowCheckedModeBanner: false,
+        theme: ThemeData(
+          colorScheme: ColorScheme.fromSeed(seedColor: Colors.brown),
+          useMaterial3: true,
+        ),
+        title: "Mi primer App",
+        //home: const ProductosPage(),
+        routes: {
+          '/': (context) => const LoginPage(),
+          '/inicio': (context) => const ProductosPage(),
+          '/agregarProductos': (context) => const AgregarProductosPage(),
+          '/actualizarProducto': (context) => const ActualizarProductoPage()
+        },
+        initialRoute: '/',
+        navigatorObservers: [FlutterSmartDialog.observer],
+        builder: FlutterSmartDialog.init(),
       ),
-      title: "Mi primer App",
-      home: const ExamenU1Page(),
     );
   }
 }
